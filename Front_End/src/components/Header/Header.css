@@ -1,0 +1,12 @@
+a {
+  cursor: pointer;
+}
+@font-face {
+  font-family: "Xanax";
+  src: url("../../Font/Xanax___.ttf") format("truetype");
+}
+.logo_css{
+  font-family:'Xanax' ;
+  color: #F4C613;
+  font-size: 30px;
+}
