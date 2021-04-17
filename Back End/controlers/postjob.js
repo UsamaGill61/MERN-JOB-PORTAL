@@ -129,7 +129,7 @@ exports.getAllJobs_SearchJobs = async (req, res) => {
       totalPages: Math.ceil(total / PAGE_SIZE),
       Jobs,
       totalJobs: total,
-      totalRegisteredUsers, 
+      totalRegisteredUsers,  
     });
   }
 };

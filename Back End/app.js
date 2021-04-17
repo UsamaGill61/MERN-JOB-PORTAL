@@ -16,9 +16,9 @@ app.use(xss());
 app.use(morgon("dev"));
 
 app.use(cors());
-app.use(helmet());
+app.use(helmet()); 
 
-const limiter = rateLimit({
+const limiter = rateLimit({ 
   max: 10000,
   windowMs: 60 * 60 * 1000,
   message: "Too Many requests from your IP, Please try again in 1 hour",
