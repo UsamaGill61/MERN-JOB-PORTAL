@@ -2,16 +2,20 @@ import {
   JobPostedConstants,
   getJobsPostedBySingleUserConstants,
   getsinglejobDetail,
+  UpdateUser,
+  FILLYOURPROFILE,
 } from "../actions/constants";
 
 const initState = {
   loading: false,
+  setingJobDetailtoNull: false,
   jobposting: false,
   jobpostingError: false,
   error: null,
   message: "",
   Jobs: [],
   SingleJobDetail: {},
+  COMPLETE_YOUR_PROFILE_ERROR: "",
 };
 
 export default (state = initState, action) => {
@@ -47,23 +51,36 @@ export default (state = initState, action) => {
     case getsinglejobDetail.GET_JOB_DETAIL_REQUEST:
       state = {
         ...state,
-        loading: true,
+        // loading: true,
       };
       break;
 
     case getsinglejobDetail.GET_JOB_DETAIL_SUCCESS:
       state = {
         ...state,
-        loading: false,
+        // loading: false,
         SingleJobDetail: action.payload.JobDetail,
+        setingJobDetailtoNull: true,
       };
       break;
 
     case getsinglejobDetail.GET_JOB_DETAIL_FAILURE:
       state = {
         ...state,
-        loading: false,
+        // loading: false,
         message: action.payload.error,
+      };
+      break;
+    case UpdateUser.RESET_UPDATE_USER:
+      state = {
+        ...state,
+        SingleJobDetail: {},
+      };
+      break;
+    case FILLYOURPROFILE.FILLYOURPROFILE_RESPONSE:
+      state = {
+        ...state,
+        COMPLETE_YOUR_PROFILE_ERROR: action.payload,
       };
       break;
   }

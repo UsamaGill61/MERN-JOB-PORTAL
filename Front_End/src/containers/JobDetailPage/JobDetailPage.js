@@ -4,30 +4,26 @@ import {
   getJobsDetail,
   ApplyToTheJob,
   getAllJobsInitially,
+  ResetRoute,
 } from "../../actions";
 import moment from "moment";
 
 const JobDetailPage = (props) => {
-  console.log(`'hloooooooo ${props.match.params.jobid}`)
+  // console.log(`'hloooooooo ${props.match.params.jobid}`);
   const dispatch = useDispatch();
-  const jobPosting = useSelector((state) => state.jobPosting);
   const [SingleJobDetail, setSingleJobDetail] = useState({});
   const [ShowButton, setShowButton] = useState(false);
-  // console.log(ShowButton);
-  let auth = useSelector((state) => state.auth);
+  let auth = useSelector((state) => state.auth); 
   const initialData = useSelector((state) => state.initialData);
+  const jobPosting = useSelector(state => state.jobPosting)
+  console.log(jobPosting.COMPLETE_YOUR_PROFILE_ERROR)
 
   const showApplyButton = () => {};
   useEffect(() => {
     if (jobPosting.SingleJobDetail.AppliedCanidates)
       jobPosting.SingleJobDetail.AppliedCanidates.map((e) => {
-        // console.log(e)
-        // var n = e.AppliedUserId.localeCompare(auth.user._id);
-        console.log(auth.user._id);
-        console.log(e.AppliedUserId); 
-        // console.log(n)
-
-        // if (n === 0) setShowButton(true); 
+        var n = e.AppliedUserId.localeCompare(auth.user._id);
+        if (n === 0) setShowButton(true);
       });
   }, [jobPosting.SingleJobDetail]);
 
@@ -44,12 +40,15 @@ const JobDetailPage = (props) => {
   useEffect(() => {
     setSingleJobDetail(jobPosting.SingleJobDetail);
   }, [jobPosting.SingleJobDetail]);
+  useEffect(() => {
+    if (initialData.setingJobDetailtoNull) dispatch(ResetRoute());
+  }, [initialData.setingJobDetailtoNull]);
 
   const applyTojobMethod = () => {
     const { jobid } = props.match.params;
     const payload = {
-      params: {
-        jobid,
+      params: { 
+        jobid, 
       },
     };
     dispatch(getJobsDetail(payload));

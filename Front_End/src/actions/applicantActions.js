@@ -1,5 +1,5 @@
 import axiosInstance from "../helpers/axios";
-import { UpdateUser } from "./constants";
+import { UpdateUser, FILLYOURPROFILE } from "./constants";
 
 export const UpdateApplicant = (form) => {
   return async (dispatch) => {
@@ -25,8 +25,14 @@ export const UpdateApplicant = (form) => {
 export const ApplyToTheJob = (jobid) => {
   return async (dispatch) => {
     const res = await axiosInstance.post(`/ApplyToTheJob/${jobid}`);
-    return true;
-
+    if (res.status === 201) {
+      dispatch({
+        type: FILLYOURPROFILE.FILLYOURPROFILE_RESPONSE,
+        payload: res.data.message,
+      });
+    } else {
+      return true;
+    }
   };
 };
 export const ResetRoute = (form) => {

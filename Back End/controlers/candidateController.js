@@ -98,26 +98,58 @@ exports.updateCandidateProfile = (req, res) => {
     });
 };
 
-exports.ApplyToTheJob = (req, res) => {
-  JOBPOSTMODEL.find({
-    _id: req.params.jobid,
-    "AppliedCanidates.AppliedUserId": req.user._id,
-  }).exec((err, result) => {
-    if (result.length > 0) {
-      res.json({ message: "You Have Already Applied For this job" });
-    } else {
-      JOBPOSTMODEL.findOneAndUpdate(
-        { _id: req.params.jobid },
-        {
-          $push: {
-            AppliedCanidates: {
-              AppliedUserId: req.user._id,
-            },
-          },
-        }
-      ).exec((err, data) => {
-        if (data) res.json({ message: "You Applied For the job Successfully" });
-      });
+exports.ApplyToTheJob = (req, response) => {
+  USER.findById({ _id: req.user._id }).exec((err, res) => {
+    if (err) console.log(err);
+    if (res) {
+      if (
+        res.fatherName !== "N/A" &&
+        res.cnic !== "0" &&
+        res.age !== 0 &&
+        res.gender !== "N/A" &&
+        res.maritalStatus !== "N/A" &&
+        res.religion !== "N/A" &&
+        res.mobile !== "0" &&
+        res.address !== "N/A" &&
+        res.city !== "N/A" &&
+        res.country !== "N/A" &&
+        res.JobTitle !== "N/A" &&
+        res.CareerLevel !== "N/A" &&
+        res.TargetSalery !== "N/A" &&
+        res.DegreeLevel !== "N/A" &&
+        res.summery !== "N/A" &&
+        res.SkillsArray.length !== 0 &&
+        res.ToolsArray.length !== 0
+      ) {
+        JOBPOSTMODEL.find({
+          _id: req.params.jobid,
+          "AppliedCanidates.AppliedUserId": req.user._id,
+        }).exec((err, result) => {
+          if (result.length > 0) {
+            response.json({ message: "You Have Already Applied For this job" });
+          } else {
+            JOBPOSTMODEL.findOneAndUpdate(
+              { _id: req.params.jobid },
+              {
+                $push: {
+                  AppliedCanidates: {
+                    AppliedUserId: req.user._id,
+                  },
+                },
+              }
+            ).exec((err, data) => {
+              if (data)
+                response.json({
+                  message: "You Applied For the job Successfully",
+                });
+            });
+          }
+        });
+      } else {
+        response.status(201).json({
+          message: "Please Fill Out All details in Your Profile TO Apply",
+        });
+      }
     }
   });
 };
