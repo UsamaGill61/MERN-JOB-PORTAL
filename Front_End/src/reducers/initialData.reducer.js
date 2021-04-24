@@ -1,7 +1,8 @@
-import { getAllJobs } from "../actions/constants";
+import { getAllJobs, GET_ALL_USER_SEARCH } from "../actions/constants";
 
 const initState = {
   initialJobs: [],
+  initialUsers: [],
   totalPages: "",
   loading: false,
   totalJobs: "",
@@ -26,7 +27,20 @@ export default (state = initState, action) => {
         loading: false,
       };
       break;
-
+    case GET_ALL_USER_SEARCH.GET_ALL_USER_SEARCH_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case GET_ALL_USER_SEARCH.GET_ALL_USER_SEARCH_SUCCESS:
+      state = {
+        ...state,
+        initialUsers: action.payload.Users,
+        totalPages: action.payload.totalPages, 
+        loading: false,
+      };
+      break;
   }
   return state;
 };

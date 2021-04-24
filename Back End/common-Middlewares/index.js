@@ -41,6 +41,12 @@ exports.candidateMidelware = (req, res, next) => {
   }
   next();
 };
+exports.RecureterMiddleware = (req, res, next) => { 
+  if (!req.user.role === "Recureter") {
+    return res.status(400).json({ message: "Access denied" });
+  }
+  next();
+};
 
 
 exports.adminMiddleware = (req, res, next) => {

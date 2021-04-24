@@ -28,6 +28,7 @@ app.use("/api", limiter);
 const authRouter = require("./routes/auth");
 const jobPosterROuter = require("./routes/postjob");
 const candidateRoutes = require("./routes/candidate")
+const RecuriterRoutes = require("./routes/recuriter")
 
  
 //static path for images
@@ -36,6 +37,8 @@ app.use("/public", express.static(path.join(__dirname, "uploads")));
 app.use("/api", authRouter);  
 app.use("/api", jobPosterROuter);
 app.use("/api",candidateRoutes)
+app.use("/api",RecuriterRoutes)
+
 
 app.all("*", (req, res, next) => {
   const err = new Error(`Cannot find ${req.originalUrl} on this server`); 
