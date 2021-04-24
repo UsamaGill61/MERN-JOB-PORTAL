@@ -3,6 +3,7 @@ import {
   JobPostedConstants,
   getJobsPostedBySingleUserConstants,
   getsinglejobDetail,
+  GETSINGLEUSERDETAIL,
 } from "./constants";
 
 export const PostJob = (job) => {
@@ -72,6 +73,28 @@ export const getJobsDetail = (payload) => {
         type: getsinglejobDetail.GET_JOB_DETAIL_FAILURE,
         payload: { error: res.data.messagae },
       });
+    }
+  };
+};
+
+export const getSingleUserDetail = (SingleUserId) => {
+
+  return async (dispatch) => {
+    dispatch({ type: GETSINGLEUSERDETAIL.GETSINGLEUSERDETAIL_REQUEST });
+    const res = await axiosInstance.get(`/getSingleuserDetail/${SingleUserId}`);
+    if (res.status === 201) {
+      const { user } = res.data;
+      dispatch({
+        type: GETSINGLEUSERDETAIL.GETSINGLEUSERDETAIL_SUCCESS,
+        payload: {
+          user,
+        },
+      }); 
+    } else {
+      // dispatch({
+      //   type: authConstants.LOGIN_FAILURE,
+      //   payload: { error: res.data.message },
+      // });
     }
   };
 };

@@ -16,7 +16,7 @@ export const login = (user) => {
         payload: {
           token,
           user,
-        },
+        }, 
       });
       // window.location.reload(false);
       return true;

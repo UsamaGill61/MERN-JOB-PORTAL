@@ -11,6 +11,7 @@ import RecuireterLoginPage from "./containers/RecuireterLoginPage/RecuireterLogi
 import JobDetailPage from "./containers/JobDetailPage/JobDetailPage";
 import UpdateYourProfile from "./containers/ApplicationLoginPage/UpdateYourProfile";
 import View_All_Applcations from "./containers/JobPosterLoginPage/View_All_Applcations";
+import UserProfile from "./containers/ApplicationLoginPage/UserProfile";
 
 const App = (props) => {
   const [loader, setloader] = useState(false);
@@ -73,7 +74,7 @@ const App = (props) => {
         <Route path="/RecuireterLoginPage" component={RecuireterLoginPage} />
         <Route path="/updateYourProfile" component={UpdateYourProfile} />
         
-        <Route path="/:AppliedUserId/user/completeProfile" component={ApplicationLoginPage} />
+        <Route path="/user/completeProfile" component={UserProfile} />
         <Route path="/:Applicants/jobAppliedCandidates" component={View_All_Applcations} />
         <Route path="/:jobid" component={JobDetailPage} />
 

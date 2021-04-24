@@ -1,4 +1,9 @@
-import { authConstants, userContants, UpdateUser } from "../actions/constants";
+import {
+  authConstants,
+  userContants,
+  UpdateUser,
+  GETSINGLEUSERDETAIL,
+} from "../actions/constants";
 
 const initState = {
   token: null,
@@ -88,6 +93,19 @@ export default (state = initState, action) => {
       state = {
         ...initState,
         message: action.payload.message,
+      };
+      break;
+    case GETSINGLEUSERDETAIL.GETSINGLEUSERDETAIL_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case GETSINGLEUSERDETAIL.GETSINGLEUSERDETAIL_SUCCESS:
+      state = {
+        ...state,
+        user: action.payload.user,
+        loading: false,
       };
       break;
   }

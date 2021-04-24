@@ -14,13 +14,15 @@ router.post(
 );
 
 router.get(
-  "/getJobsPostedBySingleUser",
+  "/getJobsPostedBySingleUser", 
   requireSignin,
   JobPosterMiddleware,
   postjobController.getJobsPostedBySingleUser
 );
-
+ 
 router.get("/getJobsDetail/:jobid", postjobController.getJobsDetail);
 router.get("/getAllJobs_SearchJobs", postjobController.getAllJobs_SearchJobs);
+router.get("/getSingleuserDetail/:Personid", postjobController.getSingleUserDetail);
+ 
 
 module.exports = router;

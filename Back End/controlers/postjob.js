@@ -80,24 +80,6 @@ exports.getJobsDetail = (req, res) => {
   });
 };
 
-// exports.getAllJobs = async (req, res) => {
-//   console.log(req.query.queryWord)
-//   const PAGE_SIZE = 5;
-//   const page = parseInt(req.query.page || "0");
-//   const total = await JOBPOSTMODEL.countDocuments({});
-//   const totalRegisteredUsers = await USER.countDocuments({});
-
-//   const Jobs = await JOBPOSTMODEL.find({})
-
-//     .limit(PAGE_SIZE)
-//     .skip(PAGE_SIZE * page);
-//   res.json({
-//     totalPages: Math.ceil(total / PAGE_SIZE),
-//     Jobs,
-//     totalJobs: total,
-//     totalRegisteredUsers,
-//   });
-// };
 exports.getAllJobs_SearchJobs = async (req, res) => {
   const PAGE_SIZE = 5;
   const page = parseInt(req.query.page || "0");
@@ -108,7 +90,7 @@ exports.getAllJobs_SearchJobs = async (req, res) => {
     const fulllength = await JOBPOSTMODEL.find({
       title: { $regex: req.query.queryWord, $options: "$i" },
     });
-    
+
     const Jobs = await JOBPOSTMODEL.find({
       title: { $regex: req.query.queryWord, $options: "$i" },
     })
@@ -129,7 +111,24 @@ exports.getAllJobs_SearchJobs = async (req, res) => {
       totalPages: Math.ceil(total / PAGE_SIZE),
       Jobs,
       totalJobs: total,
-      totalRegisteredUsers,  
+      totalRegisteredUsers,
     });
   }
+};
+
+exports.getSingleUserDetail = async (req, res) => {
+  const { Personid } = req.params;
+  USER.findOne({ _id: Personid })
+    .select(
+      "    fatherName firstName  email  ToolsArray  SkillsArray  lastName  DegreeLevel  TargetSalery  JobTitle  CareerLevel  country  cnic  Fax  age gender maritalStatus religion mobile landline address city summery PROFILEPicture"
+    )
+
+    .exec((error, user) => {
+      if (error) {
+        return res.json({ message: "SomeThing Went Wrong......." });
+      }
+      if (user) {
+        return res.status(201).json({ user });
+      }
+    });
 };

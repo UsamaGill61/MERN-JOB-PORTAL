@@ -30,7 +30,7 @@ const JobDetailPage = (props) => {
   useEffect(() => {
     const { jobid } = props.match.params;
     const payload = {
-      params: { 
+      params: {
         jobid,
       },
     };
@@ -62,15 +62,22 @@ const JobDetailPage = (props) => {
           {showApplyButton()}
           <div className="row pt-2 text-right">
             <div className="col-11">
-              {ShowButton ? (
-                <button disabled className="btn btn-info">
-                  Applied Successfully
-                </button>
-              ) : (
-                <button className="btn btn-primary" onClick={applyTojobMethod}>
-                  Apply To this Job
-                </button>
-              )}
+              {auth.authenticate && auth.user.role === "Applicant" ? (
+                <>
+                  {ShowButton ? (
+                    <button disabled className="btn btn-info">
+                      Applied Successfully
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-primary"
+                      onClick={applyTojobMethod}
+                    >
+                      Apply To this Job
+                    </button>
+                  )}
+                </>
+              ) : null}
             </div>
           </div>
         </div>
