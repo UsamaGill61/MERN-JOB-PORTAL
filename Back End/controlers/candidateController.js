@@ -147,7 +147,7 @@ exports.ApplyToTheJob = (req, response) => {
         });
       } else {
         response.status(201).json({
-          message: "Please Fill Out All details in Your Profile TO Apply",
+          message: "Please Fill Out All Required details in Your Profile TO Apply",
         });
       }
     }

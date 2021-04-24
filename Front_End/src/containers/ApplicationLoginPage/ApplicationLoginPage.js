@@ -43,9 +43,11 @@ const ApplicationLoginPage = () => {
       <div className="container-fluid">
         <div className="row p-2">
           <div className="col-12 text-right">
-            <Link className="btn btn-primary " to={`/updateYourProfile`}>
-              Update Your Profile
-            </Link>
+            {auth.authenticate && auth.user.role === "Applicant" ? (
+              <Link className="btn btn-primary " to={`/updateYourProfile`}>
+                Update Your Profile
+              </Link>
+            ) : null}
           </div>
         </div>
         <div className="row p-2">

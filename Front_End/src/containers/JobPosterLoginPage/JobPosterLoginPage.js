@@ -19,7 +19,7 @@ const JobPosterLoginPage = () => {
   return (
     <div className="container-fluid">
       <div className="row mx-5 p-3">
-        <div className="col-6"> 
+        <div className="col-6">
           <h2>Total Jobs Posted</h2>
         </div>
         <div className="offset-md-4 align-self-end">
@@ -28,7 +28,7 @@ const JobPosterLoginPage = () => {
             onClick={() => setpostJobModel(true)}
           >
             Post A new Job
-          </button>
+          </button> 
         </div>
       </div>
       <div className="row mx-5 p-3">
@@ -60,12 +60,17 @@ const JobPosterLoginPage = () => {
                 {moment(job.lastDateToApply).calendar()}
               </div>
               <div className="col-2">
-                <Link className="btn btn-primary " to={`/${job._id}/jobDetail`}>
+                <Link className="btn btn-primary " to={`/${job._id}`}>
                   View Detail
                 </Link>
               </div>
               <div className="col-2">
-                <button className="btn btn-primary">View Applications</button>
+                <Link
+                  className="btn btn-primary "
+                  to={`/${job._id}/jobAppliedCandidates`}
+                >
+                  View Applications
+                </Link>
               </div>
             </div>
           ))}

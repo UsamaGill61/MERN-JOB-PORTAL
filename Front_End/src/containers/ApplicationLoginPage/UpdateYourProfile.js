@@ -6,7 +6,6 @@ import * as Yup from "yup";
 import ErrorMessages from "../../components/Header/ErrorMessages";
 import { UpdateApplicant,ResetRoute } from "../../actions";
 
-import { ToastContainer, toast } from "react-toastify";
 import MaskedInput from "react-text-mask";
 
 import {
@@ -18,9 +17,7 @@ import {
 import SelectCountry from "./SelectCountry";
 import SelectCity from "./SelectCity";
 
-toast.configure();
 const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
-  const [succesfullAlert, setsuccesfullAlert] = useState(false);
   const [CNIC, setCNIC] = useState("");
   const [Faxno, setFaxno] = useState("");
   const [mobileno, setmobileno] = useState("");
@@ -82,23 +79,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
     setSummery(summery);
   }, [auth.user]);
 
-  const notify = () =>
-    toast.info(
-      `${jobPosting.message}`,
 
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        // onClose: () => dispatch(emptyErrorFiildsAfterSignUp()),
-      }
-    );
-
-  if (succesfullAlert) notify();
 
   if (auth.UpdateUser)
     return (
@@ -206,11 +187,6 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
     // }
   };
 
-  // dispatch(login(user));
-  // };
-  // useEffect(() => {
-  //   setloginModel(false);
-  // }, [auth.authenticate]);
 
   return (
     <>

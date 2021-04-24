@@ -10,6 +10,7 @@ import JobPosterLoginPage from "./containers/JobPosterLoginPage/JobPosterLoginPa
 import RecuireterLoginPage from "./containers/RecuireterLoginPage/RecuireterLoginPage";
 import JobDetailPage from "./containers/JobDetailPage/JobDetailPage";
 import UpdateYourProfile from "./containers/ApplicationLoginPage/UpdateYourProfile";
+import View_All_Applcations from "./containers/JobPosterLoginPage/View_All_Applcations";
 
 const App = (props) => {
   const [loader, setloader] = useState(false);
@@ -71,8 +72,11 @@ const App = (props) => {
         <Route path="/JobPosterLoginPage" component={JobPosterLoginPage} />
         <Route path="/RecuireterLoginPage" component={RecuireterLoginPage} />
         <Route path="/updateYourProfile" component={UpdateYourProfile} />
-
+        
+        <Route path="/:AppliedUserId/user/completeProfile" component={ApplicationLoginPage} />
+        <Route path="/:Applicants/jobAppliedCandidates" component={View_All_Applcations} />
         <Route path="/:jobid" component={JobDetailPage} />
+
       </Switch>
     </div>
   );

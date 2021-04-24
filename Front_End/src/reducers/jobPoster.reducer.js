@@ -51,24 +51,26 @@ export default (state = initState, action) => {
     case getsinglejobDetail.GET_JOB_DETAIL_REQUEST:
       state = {
         ...state,
-        // loading: true,
+        loading: true,
       };
       break;
 
     case getsinglejobDetail.GET_JOB_DETAIL_SUCCESS:
       state = {
         ...state,
-        // loading: false,
+        loading: false,
         SingleJobDetail: action.payload.JobDetail,
         setingJobDetailtoNull: true,
+        COMPLETE_YOUR_PROFILE_ERROR:""
       };
       break;
 
     case getsinglejobDetail.GET_JOB_DETAIL_FAILURE:
       state = {
         ...state,
-        // loading: false,
+        loading: false,
         message: action.payload.error,
+        COMPLETE_YOUR_PROFILE_ERROR:""
       };
       break;
     case UpdateUser.RESET_UPDATE_USER:

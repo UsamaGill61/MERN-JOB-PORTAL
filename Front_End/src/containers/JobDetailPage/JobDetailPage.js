@@ -7,16 +7,16 @@ import {
   ResetRoute,
 } from "../../actions";
 import moment from "moment";
+import Alert from "../../components/Alert/Alert";
 
 const JobDetailPage = (props) => {
   // console.log(`'hloooooooo ${props.match.params.jobid}`);
   const dispatch = useDispatch();
   const [SingleJobDetail, setSingleJobDetail] = useState({});
   const [ShowButton, setShowButton] = useState(false);
-  let auth = useSelector((state) => state.auth); 
+  let auth = useSelector((state) => state.auth);
   const initialData = useSelector((state) => state.initialData);
-  const jobPosting = useSelector(state => state.jobPosting)
-  console.log(jobPosting.COMPLETE_YOUR_PROFILE_ERROR)
+  const jobPosting = useSelector((state) => state.jobPosting);
 
   const showApplyButton = () => {};
   useEffect(() => {
@@ -30,7 +30,7 @@ const JobDetailPage = (props) => {
   useEffect(() => {
     const { jobid } = props.match.params;
     const payload = {
-      params: {
+      params: { 
         jobid,
       },
     };
@@ -47,8 +47,8 @@ const JobDetailPage = (props) => {
   const applyTojobMethod = () => {
     const { jobid } = props.match.params;
     const payload = {
-      params: { 
-        jobid, 
+      params: {
+        jobid,
       },
     };
     dispatch(getJobsDetail(payload));
@@ -64,7 +64,7 @@ const JobDetailPage = (props) => {
             <div className="col-11">
               {ShowButton ? (
                 <button disabled className="btn btn-info">
-                  You Have Already Applied To this job
+                  Applied Successfully
                 </button>
               ) : (
                 <button className="btn btn-primary" onClick={applyTojobMethod}>
@@ -240,6 +240,7 @@ const JobDetailPage = (props) => {
             </div>
           </div>
         </div>
+        <Alert />
       </div>
     );
   } else {

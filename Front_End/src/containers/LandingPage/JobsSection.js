@@ -87,7 +87,7 @@ const JobsSection = () => {
                 <div className="col-2">
                   <Link
                     className="btn btn-primary "
-                    to={`/${job._id}/jobDetail`}
+                    to={`/${job._id}`}
                   >
                     View Detail
                   </Link>

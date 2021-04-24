@@ -30,6 +30,7 @@ export const ApplyToTheJob = (jobid) => {
         type: FILLYOURPROFILE.FILLYOURPROFILE_RESPONSE,
         payload: res.data.message,
       });
+      return false
     } else {
       return true;
     }
