@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUsers_Search } from "../../actions";
+import { getAllUsers_Search,getSingleUserDetail } from "../../actions";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
@@ -101,7 +101,8 @@ const RecuireterLoginPage = () => {
                 <div className="col-2">
                   <Link
                     className="btn btn-primary "
-                    // to={`/${job._id}`}
+                    to={`/user/completeProfile`}
+                    onClick={()=>dispatch(getSingleUserDetail(User._id))}
                   >
                     View Detail
                   </Link>

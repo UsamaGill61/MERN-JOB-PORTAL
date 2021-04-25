@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import * as Yup from "yup";
 import ErrorMessages from "../../components/Header/ErrorMessages";
-import { UpdateApplicant,ResetRoute } from "../../actions";
+import { UpdateApplicant, ResetRoute } from "../../actions";
 
 import MaskedInput from "react-text-mask";
 
@@ -79,8 +79,6 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
     setSummery(summery);
   }, [auth.user]);
 
-
-
   if (auth.UpdateUser)
     return (
       <Redirect
@@ -88,11 +86,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           pathname: "/ApplicationLoginPage",
         }}
       />
-    
     );
-
-
-
 
   const handleSkills = (e) => {
     if (OneSkill) {
@@ -187,7 +181,6 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
     // }
   };
 
-
   return (
     <>
       <Formik
@@ -205,7 +198,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
           <div className="row bg-light ">
             <div className="col-6">
-              <label htmlFor="firstName">FirstName</label>
+              <label htmlFor="firstName">
+                FirstName{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>
               <Field
                 id="#firstName"
                 type="text"
@@ -217,7 +213,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
               <ErrorMessage name="firstName" component={ErrorMessages} />
             </div>{" "}
             <div className="col-6">
-              <label htmlFor="lastName">LastName</label>
+              <label htmlFor="lastName">
+                LastName{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>
               <Field
                 id="#lastName"
                 type="text"
@@ -231,75 +230,11 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
 
           <div className="row ">
-            <div className="col-6">
-              <label htmlFor="fatherName">FatherName</label>
-              <Field
-                id="#fatherName"
-                type="text"
-                className="form-control mb-2"
-                placeholder="Add fatherName"
-                name="fatherName"
-              />
-
-              <ErrorMessage name="fatherName" component={ErrorMessages} />
-            </div>{" "}
-            <div className="col-6">
-              <label htmlFor="email">Email</label>
-              <Field
-                id="#email"
-                type="email"
-                className="form-control mb-2"
-                placeholder="email"
-                name="email"
-              />
-
-              <ErrorMessage name="email" component={ErrorMessages} />
-            </div>
-          </div>
-
-          <div className="row bg-light">
-            <div className="col-6">
-              <label htmlFor="TargetSalery">Enter your Target Salery </label>
-              <Field
-                id="#TargetSalery"
-                type="number"
-                className="form-control mb-2"
-                placeholder="Add Target Salery"
-                name="TargetSalery"
-              />
-
-              <ErrorMessage name="TargetSalery" component={ErrorMessages} />
-            </div>{" "}
-            <div className="col-6">
-              <label htmlFor="TotalPositions">
-                Enter Job Title which You are looking for to get
+            <div className="col-12">
+              <label htmlFor="address">
+                Enter address{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
               </label>
-              <Field
-                id="#JobTitle"
-                type="text"
-                className="form-control mb-2"
-                placeholder="Add Job Title"
-                name="JobTitle"
-              />
-
-              <ErrorMessage name="JobTitle" component={ErrorMessages} />
-            </div>
-          </div>
-          <div className="row ">
-            <div className="col-6">
-              <label htmlFor="age">Enter Age </label>
-              <Field
-                id="#age"
-                type="number"
-                className="form-control mb-2"
-                placeholder="Add age"
-                name="age"
-              />
-
-              <ErrorMessage name="age" component={ErrorMessages} />
-            </div>{" "}
-            <div className="col-6">
-              <label htmlFor="address">Enter address</label>
               <Field
                 id="#address"
                 type="text"
@@ -314,7 +249,75 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
           <div className="row bg-light">
             <div className="col-6">
-              <label htmlFor="DegreeLevel">Select Degree Level</label>
+              <label htmlFor="TargetSalery">
+                Enter your Target Salery (Rs){" "}
+                <span className="text-danger">(Required Before You Apply)</span>{" "}
+              </label>
+              <Field
+                id="#TargetSalery"
+                type="number"
+                className="form-control mb-2"
+                placeholder="Add Target Salery"
+                name="TargetSalery"
+              />
+
+              <ErrorMessage name="TargetSalery" component={ErrorMessages} />
+            </div>{" "}
+            <div className="col-6">
+              <label htmlFor="TotalPositions">
+                Enter Job Title which You are looking for to get{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>
+              <Field
+                id="#JobTitle"
+                type="text"
+                className="form-control mb-2"
+                placeholder="Add Job Title"
+                name="JobTitle"
+              />
+
+              <ErrorMessage name="JobTitle" component={ErrorMessages} />
+            </div>
+          </div>
+          <div className="row ">
+            <div className="col-6">
+              <label htmlFor="age">
+                Enter Age{" "}
+                <span className="text-danger">(Required Before You Apply)</span>{" "}
+              </label>
+              <Field
+                id="#age"
+                type="number"
+                className="form-control mb-2"
+                placeholder="Add age"
+                name="age"
+              />
+
+              <ErrorMessage name="age" component={ErrorMessages} />
+            </div>{" "}
+            <div className="col-6">
+              <label htmlFor="fatherName">
+                FatherName{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>
+              <Field
+                id="#fatherName"
+                type="text"
+                className="form-control mb-2"
+                placeholder="Add fatherName"
+                name="fatherName"
+              />
+
+              <ErrorMessage name="fatherName" component={ErrorMessages} />
+            </div>{" "}
+          </div>
+
+          <div className="row bg-light">
+            <div className="col-6">
+              <label htmlFor="DegreeLevel">
+                Select Degree Level{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>
               <Field
                 id="#DegreeLevel"
                 as="select"
@@ -333,7 +336,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
               <ErrorMessage name="DegreeLevel" component={ErrorMessages} />
             </div>{" "}
             <div className="col-6">
-              <label htmlFor="gender">Select Gender</label>
+              <label htmlFor="gender">
+                Select Gender{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>
               <Field
                 id="#gender"
                 as="select"
@@ -355,7 +361,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
           <div className="row ">
             <div className="col-6">
-              <label htmlFor="maritalStatus">Select Marital Status</label>
+              <label htmlFor="maritalStatus">
+                Select Marital Status{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>
               <Field
                 id="#maritalStatus"
                 as="select"
@@ -374,7 +383,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
               <ErrorMessage name="maritalStatus" component={ErrorMessages} />
             </div>{" "}
             <div className="col-6">
-              <label htmlFor="CareerLevel">Select Career Level</label>
+              <label htmlFor="CareerLevel">
+                Select Career Level{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>
               <Field
                 id="#CareerLevel"
                 as="select"
@@ -396,7 +408,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
           <div className="row pt-2 bg-light">
             <div className="col-6">
-              <label htmlFor="maritalStatus">Enter CNIC</label>{" "}
+              <label htmlFor="maritalStatus">
+                Enter CNIC{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>{" "}
               <MaskedInput
                 className="form-control"
                 guide={true}
@@ -423,7 +438,9 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
               />
             </div>{" "}
             <div className="col-6">
-              <label htmlFor="maritalStatus">Enter Fax No</label>{" "}
+              <label htmlFor="maritalStatus">
+                Enter Fax No <span className="text-info">(Optional)</span>
+              </label>{" "}
               <MaskedInput
                 className="form-control"
                 guide={true}
@@ -453,7 +470,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
           <div className="row ">
             <div className="col-6">
-              <label htmlFor="maritalStatus">Enter Mobile Number</label>{" "}
+              <label htmlFor="maritalStatus">
+                Enter Mobile Number{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>{" "}
               <MaskedInput
                 className="form-control"
                 guide={true}
@@ -477,7 +497,9 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
               />
             </div>{" "}
             <div className="col-6">
-              <label htmlFor="maritalStatus">Enter Land Line No</label>{" "}
+              <label htmlFor="maritalStatus">
+                Enter Land Line No <span className="text-info">(Optional)</span>
+              </label>{" "}
               <MaskedInput
                 className="form-control"
                 guide={true}
@@ -505,14 +527,20 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
           <div className="row bg-light">
             <div className="col-6">
-              <label>Select Country</label>{" "}
+              <label>
+                Select Country{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>{" "}
               <SelectCountry
                 setcountryname={setcountryname}
                 countryname={countryname}
               />
             </div>
             <div className="col-6">
-              <label>Select Religion</label>{" "}
+              <label>
+                Select Religion{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>{" "}
               <select
                 onChange={(e) => setReligion(e.target.value)}
                 className="form-control"
@@ -527,11 +555,17 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
           <div className="row ">
             <div className="col-6 ">
-              <label>Select City</label>{" "}
+              <label>
+                Select City{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>{" "}
               <SelectCity City={City} setCity={setCity} />
             </div>
             <div className="col-6 ">
-              <label>Select City</label>{" "}
+              <label>
+                Select Profile Picture{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>{" "}
               <input
                 className="form-control"
                 type="file"
@@ -541,7 +575,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
           <div className="row bg-light">
             <div className="col-12 ">
-              <label>Describe Your Self(Summery)</label>{" "}
+              <label>
+                Describe Your Self(Summery){" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>{" "}
               <textarea
                 onChange={(e) => setSummery(e.target.value)}
                 className="form-control"
@@ -552,7 +589,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
           <div className="row ">
             <div className="col-6 ">
-              <label>Enter Skills One By One</label>{" "}
+              <label>
+                Enter Skills One By One{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>{" "}
               {skillsArray.length > 0
                 ? skillsArray.map((Skill, index) => (
                     <div
@@ -592,7 +632,10 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
               </button>
             </div>{" "}
             <div className="col-6 ">
-              <label>Enter Tools You Know One By One</label>{" "}
+              <label>
+                Enter Tools You Know One By One{" "}
+                <span className="text-danger">(Required Before You Apply)</span>
+              </label>{" "}
               {toolsArray.length > 0
                 ? toolsArray.map((Tools, index) => (
                     <div

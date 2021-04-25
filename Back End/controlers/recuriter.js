@@ -29,20 +29,3 @@ exports.getAllUsers_Search = async (req, res) => {
     });
   }
 };
-
-//   exports.getSingleUserDetail = async (req, res) => {
-//     const { Personid } = req.params;
-//     USER.findOne({ _id: Personid })
-//       .select(
-//         "    fatherName firstName  email  ToolsArray  SkillsArray  lastName  DegreeLevel  TargetSalery  JobTitle  CareerLevel  country  cnic  Fax  age gender maritalStatus religion mobile landline address city summery PROFILEPicture"
-//       )
-
-//       .exec((error, user) => {
-//         if (error) {
-//           return res.json({ message: "SomeThing Went Wrong......." });
-//         }
-//         if (user) {
-//           return res.status(201).json({ user });
-//         }
-//       });
-//   };

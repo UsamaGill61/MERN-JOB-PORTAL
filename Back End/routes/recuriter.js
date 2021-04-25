@@ -12,6 +12,5 @@ router.get(
   RecureterMiddleware,
   RECURITERCONTROLER.getAllUsers_Search
 );
-// router.get("/getSingleuserDetail/:Personid", postjobController.getSingleUserDetail);
 
 module.exports = router;

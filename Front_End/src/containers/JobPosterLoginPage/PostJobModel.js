@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import * as Yup from "yup";
 import ErrorMessages from "../../components/Header/ErrorMessages";
 import { Modal } from "react-bootstrap";
-import { PostJob } from "../../actions";
+import { PostJob,getJobsPostedBySingleUser } from "../../actions";
 import DatePicker from "react-date-picker";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -17,54 +17,34 @@ import {
   DegreeLevelValues,
 } from "./AllDropDownValues";
 
-toast.configure();
+
 const PostJobModel = ({ postJobModel, setpostJobModel }) => {
   const [value, onChange] = useState(null);
   const [DateError, setDateError] = useState("");
-  const [succesfullAlert, setsuccesfullAlert] = useState(false);
 
   const jobPosting = useSelector((state) => state.jobPosting);
   const dispatch = useDispatch();
-  let auth = useSelector((state) => state.auth);
 
-  const notify = () =>
-    toast.info(
-      `${jobPosting.message}`,
-
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        // onClose: () => dispatch(emptyErrorFiildsAfterSignUp()),
-      }
-    );
-
-  if (succesfullAlert) notify();
 
   useEffect(() => {
     if (jobPosting.jobposting) {
-      setsuccesfullAlert(true);
       setpostJobModel(false);
     }
   }, [jobPosting.jobposting]);
 
   const initialValues = {
-    title: "klnklwnvkl",
-    description: "klvnkvkl",
-    experienceRequired: "vklerkvakl",
-    location: "klevnkl;rk",
-    companyName: "erkklevla",
-    TotalPositions: "3",
-    employmentStatus: "eklfvklaenlvnskvvkla",
-    Role: "vklmlakvm",
-    Gender: "vnfnaff",
-    monthlySalery: "3333",
-    age: "33",
-    degreeLevel: "sjvhoaefjvoevao",
+    title: "",
+    description: "",
+    experienceRequired: "",
+    location: "",
+    companyName: "",
+    TotalPositions: "",
+    employmentStatus: "",
+    Role: "",
+    Gender: "",
+    monthlySalery: "",
+    age: "",
+    degreeLevel: "",
     requiredSkills: [""],
     requiredTools: [""],
   };
@@ -110,16 +90,13 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
         lastDateToApply: value,
       };
       setDateError("");
-      dispatch(PostJob(JobPosted));
+      dispatch(PostJob(JobPosted)).then( dispatch(getJobsPostedBySingleUser()))
     } else {
       setDateError("Select Last Date Of Submission");
     }
 
-    // dispatch(login(user));
+  
   };
-  // useEffect(() => {
-  //   setloginModel(false);
-  // }, [auth.authenticate]);
 
   const PostJobModel = () => {
     return (

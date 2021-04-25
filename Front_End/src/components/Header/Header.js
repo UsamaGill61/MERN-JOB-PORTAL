@@ -95,9 +95,9 @@ const Header = () => {
             : "navbar navbar-expand-lg "
         }
       >
-        <a className="navbar-brand ml-5" href="/">
+        <Link className="navbar-brand ml-5" to="/">
           <h1 className="logo_css">JOBIFY</h1>
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"

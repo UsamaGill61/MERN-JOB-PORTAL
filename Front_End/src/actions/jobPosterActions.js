@@ -11,9 +11,9 @@ export const PostJob = (job) => {
     dispatch({ type: JobPostedConstants.JOB_POSTED_REQUEST });
     const res = await axiosInstance.post("/postjob", {
       ...job,
-    });
+    }); 
     if (res.status === 201) {
-      dispatch({
+      dispatch({ 
         type: JobPostedConstants.JOB_POSTED_SUCCESS,
         payload: {
           message: "Job Posted Successfully.....",

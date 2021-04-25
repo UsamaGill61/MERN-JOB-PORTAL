@@ -68,7 +68,7 @@ const JobsSection = () => {
           <div className="col-2">Last Day To Apply</div>
           <div className="col-2">Monthly Salery</div>
 
-          <div className="col-2"></div>
+          <div className="col-2">See Details</div>
         </div>
         {initialData.initialJobs.length > 0 ? (
           <div>
@@ -85,12 +85,15 @@ const JobsSection = () => {
                 </div>
                 <div className="col-2">{job.monthlySalery} (Rs)</div>
                 <div className="col-2">
-                  <Link
-                    className="btn btn-primary "
-                    to={`/${job._id}`}
-                  >
-                    View Detail
-                  </Link>
+                  {auth.authenticate ? (
+                    <Link className="btn btn-primary " to={`/${job._id}`}>
+                      View Detail
+                    </Link>
+                  ) : (
+                    <button className="btn btn-primary" style={{cursor:"no-drop"}} disabled>
+                      Login To Continue
+                    </button>
+                  )}
                 </div>
               </div>
             ))}

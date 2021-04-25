@@ -32,7 +32,6 @@ exports.signup = async (req, res) => {
             expiresIn: "7d",
           }
         );
-        // const { _id, firstName, lastName, email, role } = user;
         res.cookie("token", token, { expiresIn: "7d" });
         res.status(201).json({
           token,
@@ -56,7 +55,6 @@ exports.signin = (req, res) => {
             expiresIn: "7d",
           }
         );
-        // const { _id, firstName, lastName, email, role } = user;
         res.cookie("token", token, { expiresIn: "7d" });
         res.status(201).json({
           token,

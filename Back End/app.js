@@ -36,7 +36,7 @@ app.use("/public", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api", authRouter);  
 app.use("/api", jobPosterROuter);
-app.use("/api",candidateRoutes)
+app.use("/api",candidateRoutes) 
 app.use("/api",RecuriterRoutes)
 
 
