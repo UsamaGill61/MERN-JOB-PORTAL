@@ -10,3 +10,82 @@ a {
   color: #F4C613;
   font-size: 30px;
 }
+.navbar{
+  
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+  z-index: 20;
+
+}
+
+.navbar-toggler{
+    color: #F4C613;
+}
+.sidemenu{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 0px;
+    background-color: #172A45;
+    z-index: 1;
+    padding-top: 100px;
+    overflow-x: hidden;
+    transition: all .3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+.sidemenu a{
+    padding: 8px 8px 18px 94px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #A0A0A0;
+    display: block;
+    
+}
+
+.sidemenu a:hover{
+    color: #F4C613;
+}
+.sidemenu .closebtn{
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 32px;
+}
+#mainbox{
+    font-size: 24px;
+    cursor: pointer;
+}
+.nav-item {
+    padding-left: 30px;
+   
+}
+.nav-item-2{
+    padding-left: 8px;
+    
+}
+.navbar-nav{
+    margin-right: 120px;
+}
+.nav-link{
+    color: #A0A0A0;
+    font-size: 15px;
+    font-family: "Raleway";
+    margin-right: 30px;
+    font-weight: bold;
+  
+}
+.nav-link:hover{
+    color: #F4C613;
+}
+@media (max-width:575px){
+  .sidemenu a {
+    padding: 8px 30px 12px 30px !important;
+    text-decoration: none;
+    font-size: 20px;
+    color: #A0A0A0;
+    display: block;
+  }
+}

@@ -24,13 +24,13 @@ const View_All_Applcations = (props) => {
 
   return ( 
     <div className="container">
-      <div className="row mx-5 p-3">
+      <div className="row mx-md-5 p-3">
         <div className="col-4">No of Users Applied</div>
         <div className="col-6">Check User Profile</div>
       </div>
       {appliedCanidates
         ? appliedCanidates.map((user, index) => (
-            <div key={index} className="row mx-5 p-3">
+            <div key={index} className="row mx-md-5 p-3">
               <div className="col-4">{index + 1}</div>
               <div className="col-6">
                 <Link

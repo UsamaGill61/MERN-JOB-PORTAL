@@ -12,11 +12,11 @@ const SearchBar = ({ setQueryWord }) => {
     <div className="input-group">
       <div className="form-outline">
         <input
-          style={{ width: "500px" }}
+          style={{ width: "500px" }} 
           type="search"
           placeholder="Search For Jobs"
           id="form1"
-          className="form-control"
+          className="form-control Search_input"
           onChange={(e) => setqueryWord(e.target.value)}
         />
       </div>

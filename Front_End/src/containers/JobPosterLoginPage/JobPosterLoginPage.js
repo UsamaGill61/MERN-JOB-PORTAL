@@ -4,6 +4,7 @@ import { getJobsPostedBySingleUser } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import './GenralCss.css'
 
 const JobPosterLoginPage = () => {
   const dispatch = useDispatch();
@@ -18,11 +19,11 @@ const JobPosterLoginPage = () => {
   const [postJobModel, setpostJobModel] = useState(false);
   return (
     <div className="container-fluid">
-      <div className="row mx-5 p-3">
-        <div className="col-6">
-          <h2>Total Jobs Posted</h2>
+      <div className="row mx-md-5 p-2 p-lg-3">
+        <div className="col-12 col-md-6">
+          <h2>Total Jobs Posted <span className="text-info">{jobPosting.Jobs.length}</span></h2>
         </div>
-        <div className="offset-md-4 align-self-end">
+        <div className="col-12 col-md-6 text-right">
           <button
             className="btn btn-primary"
             onClick={() => setpostJobModel(true)}
@@ -31,13 +32,13 @@ const JobPosterLoginPage = () => {
           </button> 
         </div>
       </div>
-      <div className="row mx-5 p-3">
-        <div className="col-6 ">
+      <div className="row mx-md-5 p-2 p-md-3">
+        <div className="col-12 col-md-6 ">
           <h2>Your Posted Jobs</h2>
         </div>
       </div>
-      <div
-        className="row p-2 border border-secondary  mx-5"
+      <div 
+        className="row p-2 border border-secondary Hide-row-css mx-lg-5"
         style={{ backgroundColor: "#CBCBCB" }}
       >
         <div className="col-2">Title</div>
@@ -51,20 +52,20 @@ const JobPosterLoginPage = () => {
           {jobPosting.Jobs.map((job, index) => (
             <div
               key={index}
-              className="row p-2 border-top-0 border border-secondary bg-light mx-5"
+              className="row p-2 border-top-0 border border-secondary bg-light mx-lg-5"
             >
-              <div className="col-2 pt-2">{job.title}</div>
-              <div className="col-2 pt-2">{job.companyName}</div>
-              <div className="col-2 pt-2">{job.Role}</div>
-              <div className="col-2 pt-2">
+              <div className="col-6 col-sm-4 col-md-2 pt-2">{job.title}</div>
+              <div className="col-6 col-sm-4 col-md-2 pt-2">{job.companyName}</div>
+              <div className="col-6 col-sm-4 col-md-2 pt-2">{job.Role}</div>
+              <div className="col-6 col-sm-4 col-md-2 pt-2">
                 {moment(job.lastDateToApply).calendar()}
               </div>
-              <div className="col-2">
+              <div className="col-6 col-sm-4 col-md-2">
                 <Link className="btn btn-primary " to={`/${job._id}`}>
                   View Detail
                 </Link>
               </div>
-              <div className="col-2">
+              <div className="col-6 col-sm-4 col-md-2">
                 <Link
                   className="btn btn-primary "
                   to={`/${job._id}/jobAppliedCandidates`}

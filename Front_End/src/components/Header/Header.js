@@ -12,14 +12,22 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SignUpFunctionality from "./SignUpFunctionality";
 import LoginFunctionality from "./LoginFunctionality";
+import SearchBar from "../../containers/LandingPage/SearchBar";
 
 const Header = () => {
-  let auth = useSelector((state) => state.auth); 
+  let auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [signupAsApplicantModel, setsignupAsApplicantModel] = useState(false);
   const [signupAsJobPosterModel, setsignupAsJobPosterModel] = useState(false);
   const [signupAsRecruiterModel, setsignupAsRecruiterModel] = useState(false);
   const [loginModel, setloginModel] = useState(false);
+
+  const opensidebar = (e) => {
+    document.getElementById("menu").style.width = "250px";
+  };
+  const closesidebar = (e) => {
+    document.getElementById("menu").style.width = "0px";
+  };
 
   const RenderNonLoggedInMenu = () => {
     return (
@@ -40,20 +48,29 @@ const Header = () => {
             aria-labelledby="dropdownMenuButton"
           >
             <a
-              onClick={() => setsignupAsApplicantModel(true)}
+              onClick={() => {
+                setsignupAsApplicantModel(true);
+                closesidebar();
+              }}
               className="dropdown-item"
             >
               Signup As Applicant
             </a>
             <a
               className="dropdown-item"
-              onClick={() => setsignupAsJobPosterModel(true)}
+              onClick={() => {
+                setsignupAsJobPosterModel(true);
+                closesidebar();
+              }}
             >
               Signup As Job Poster
             </a>
             <a
               className="dropdown-item"
-              onClick={() => setsignupAsRecruiterModel(true)}
+              onClick={() => {
+                setsignupAsRecruiterModel(true);
+                closesidebar();
+              }}
             >
               Signup As Recruiter
             </a>
@@ -63,7 +80,10 @@ const Header = () => {
 
         <button
           className="btn btn-outline-info"
-          onClick={() => setloginModel(true)}
+          onClick={() => {
+            setloginModel(true);
+            closesidebar();
+          }}
         >
           Login
         </button>
@@ -80,7 +100,22 @@ const Header = () => {
             onClick={() => dispatch(signout())}
           >
             LogOut
-          </button> 
+          </button>
+        </div>
+      </>
+    );
+  };
+  const RenderLoggedInMenu2 = () => {
+    return (
+      <>
+        <div >
+          <div className="text-warning py-2 pr-3">{`${auth.user.firstName} ${auth.user.lastName}`}</div>
+          <button
+            className="btn btn-outline-warning mx-3"
+            onClick={() => dispatch(signout())}
+          >
+            LogOut
+          </button>
         </div>
       </>
     );
@@ -91,36 +126,38 @@ const Header = () => {
       <nav
         className={
           auth.authenticate
-            ? "navbar navbar-expand-lg navbar-dark bg-dark "
-            : "navbar navbar-expand-lg "
+            ? "navbar navbar-expand-sm navbar-dark bg-dark "
+            : "navbar navbar-expand-sm "
         }
       >
-        <Link className="navbar-brand ml-5" to="/">
+        <Link className="navbar-brand ml-2 ml-md-5" to="/">
           <h1 className="logo_css">JOBIFY</h1>
         </Link>
         <button
-          className="navbar-toggler"
+          class="navbar-toggler "
           type="button"
           data-toggle="collapse"
-          data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <div id="mainbox" onClick={opensidebar}>
+            &#9776;
+          </div>
         </button>
-
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item ml-5 pl-5">
-              {/* <SearchBar /> */}
-            </li>
-          </ul>
+          <ul className="navbar-nav mr-auto"></ul>
           {auth.authenticate ? RenderLoggedInMenu() : RenderNonLoggedInMenu()}
+        </div>
+        <div id="menu" className="sidemenu text-center">
+          <a href="#" class="closebtn" onClick={closesidebar}>
+            &times;
+          </a>
+          {auth.authenticate ? RenderLoggedInMenu2() : RenderNonLoggedInMenu()}
         </div>
       </nav>
 
-      <SignUpFunctionality 
+      <SignUpFunctionality
         signupAsApplicantModel={signupAsApplicantModel}
         setsignupAsApplicantModel={setsignupAsApplicantModel}
         signupAsJobPosterModel={signupAsJobPosterModel}

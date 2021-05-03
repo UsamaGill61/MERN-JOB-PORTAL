@@ -11,7 +11,7 @@ const JobsSection = () => {
   let auth = useSelector((state) => state.auth);
 
   const [pageNumber, setPageNumber] = useState(0);
-  const [numberOfPages, setNumberOfPages] = useState(0);
+  const [numberOfPages, setNumberOfPages] = useState(0); 
   const [QueryWord, setQueryWord] = useState("");
   // console.log(QueryWord)
 
@@ -37,29 +37,29 @@ const JobsSection = () => {
     setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
   };
 
-  return (
+  return ( 
     <>
-      <div className="container-fluid " style={{ backgroundColor: "#F4F4F4" }}>
+      <div className="container-fluid mx-0 px-0" style={{ backgroundColor: "#F4F4F4" }}>
         <div className="row text-center mx-5 p-3">
           <div className="col-12">
-            <h1 className="text-success">Search & Apply Online on All Jobs</h1>
+            <h1 className="text-success Search_text_section">Search & Apply Online on All Jobs</h1>
           </div>
         </div>
-        <div className="row text-center mx-5 p-3">
-          <div className="col-3 "></div>
-          <div className="col-8 ">
+        <div className="row text-center mx-md-5 p-3">
+          <div className="col-0 col-xl-3 "></div>
+          <div className="col-12 col-xl-8 ">
             <SearchBar setQueryWord={setQueryWord} />
           </div>
         </div>
         <div className="row mx-5 p-3">
-          <div className="col-6">
-            <h2>Recent Jobs Posted</h2>
+          <div className="col-md-5">
+            <h2 className="Search_text_section">Recent Jobs Posted</h2>
           </div>
           <div className="offset-md-4 align-self-end"></div>
         </div>
 
         <div
-          className="row p-2 border border-secondary  mx-5"
+          className="row Hide-Job-Section_row p-2 border border-secondary mx-1 mx-sm-0 mx-md-5"
           style={{ backgroundColor: "#CBCBCB" }}
         >
           <div className="col-2">Title</div>
@@ -75,16 +75,16 @@ const JobsSection = () => {
             {initialData.initialJobs.map((job, index) => (
               <div
                 key={index}
-                className="row p-2 border-top-0 border border-secondary bg-light mx-5"
+                className="row p-2 border-top-0 border border-secondary bg-light mx-1 mx-sm-0 mx-md-5"
               >
-                <div className="col-2 pt-2">{job.title}</div>
-                <div className="col-2 pt-2">{job.companyName}</div>
-                <div className="col-2 pt-2">{job.Role}</div>
-                <div className="col-2 pt-2">
+                <div className="col-6 col-md-2 pt-2">{job.title}</div>
+                <div className="col-6 col-md-2 pt-2">{job.companyName}</div>
+                <div className="col-6 col-md-2 pt-2">{job.Role}</div>
+                <div className="col-6 col-md-2 pt-2">
                   {moment(job.lastDateToApply).calendar()}
                 </div>
-                <div className="col-2">{job.monthlySalery} (Rs)</div>
-                <div className="col-2">
+                <div className="col-6 col-md-2">{job.monthlySalery} (Rs)</div>
+                <div className="col-6 col-md-2">
                   {auth.authenticate ? (
                     <Link className="btn btn-primary " to={`/${job._id}`}>
                       View Detail
@@ -112,6 +112,7 @@ const JobsSection = () => {
           <div className="col-12 text-center">
             {initialData.totalPages > 0 && (
               <div
+              className="bottom_navigation"
                 style={{
                   display: "flex",
                   flexDirection: "row",

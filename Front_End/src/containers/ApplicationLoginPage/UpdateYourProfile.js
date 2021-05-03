@@ -197,7 +197,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
             </div>
           </div>
           <div className="row bg-light ">
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="firstName">
                 FirstName{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -212,7 +212,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
               <ErrorMessage name="firstName" component={ErrorMessages} />
             </div>{" "}
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="lastName">
                 LastName{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -248,7 +248,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
 
           <div className="row bg-light">
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="TargetSalery">
                 Enter your Target Salery (Rs){" "}
                 <span className="text-danger">(Required Before You Apply)</span>{" "}
@@ -263,7 +263,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
               <ErrorMessage name="TargetSalery" component={ErrorMessages} />
             </div>{" "}
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="TotalPositions">
                 Enter Job Title which You are looking for to get{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -280,7 +280,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
             </div>
           </div>
           <div className="row ">
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="age">
                 Enter Age{" "}
                 <span className="text-danger">(Required Before You Apply)</span>{" "}
@@ -295,7 +295,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
               <ErrorMessage name="age" component={ErrorMessages} />
             </div>{" "}
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="fatherName">
                 FatherName{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -313,7 +313,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
 
           <div className="row bg-light">
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="DegreeLevel">
                 Select Degree Level{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -335,7 +335,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
               <ErrorMessage name="DegreeLevel" component={ErrorMessages} />
             </div>{" "}
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="gender">
                 Select Gender{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -360,7 +360,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
 
           <div className="row ">
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="maritalStatus">
                 Select Marital Status{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -382,7 +382,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
 
               <ErrorMessage name="maritalStatus" component={ErrorMessages} />
             </div>{" "}
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="CareerLevel">
                 Select Career Level{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -407,7 +407,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
 
           <div className="row pt-2 bg-light">
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="maritalStatus">
                 Enter CNIC{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -437,7 +437,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
                 ]}
               />
             </div>{" "}
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="maritalStatus">
                 Enter Fax No <span className="text-info">(Optional)</span>
               </label>{" "}
@@ -469,7 +469,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
 
           <div className="row ">
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="maritalStatus">
                 Enter Mobile Number{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -496,7 +496,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
                 ]}
               />
             </div>{" "}
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label htmlFor="maritalStatus">
                 Enter Land Line No <span className="text-info">(Optional)</span>
               </label>{" "}
@@ -526,7 +526,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
 
           <div className="row bg-light">
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label>
                 Select Country{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -536,7 +536,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
                 countryname={countryname}
               />
             </div>
-            <div className="col-6">
+            <div className="col-12 col-md-6">
               <label>
                 Select Religion{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -554,14 +554,14 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
           </div>
 
           <div className="row ">
-            <div className="col-6 ">
+            <div className="col-12 col-md-6 ">
               <label>
                 Select City{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
               </label>{" "}
               <SelectCity City={City} setCity={setCity} />
             </div>
-            <div className="col-6 ">
+            <div className="col-12 col-md-6">
               <label>
                 Select Profile Picture{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -588,7 +588,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
             </div>
           </div>
           <div className="row ">
-            <div className="col-6 ">
+            <div className="col-12 col-md-6">
               <label>
                 Enter Skills One By One{" "}
                 <span className="text-danger">(Required Before You Apply)</span>
@@ -631,7 +631,7 @@ const UpdateYourProfile = ({ postJobModel, setpostJobModel }) => {
                 Add Skill
               </button>
             </div>{" "}
-            <div className="col-6 ">
+            <div className="col-12 col-md-6 ">
               <label>
                 Enter Tools You Know One By One{" "}
                 <span className="text-danger">(Required Before You Apply)</span>

@@ -15,7 +15,7 @@ const LandingPage = () => {
           <video autoPlay loop muted className="bg-css">
             <source src="../video/bg.mp4" />
             <source src="../video/bg.ogv" />
-            <source src="../video/bg.webm" />
+            <source src="../video/bg.webm" /> 
           </video>
           <div className="overlay-bg"></div>
           <div className="home-content text-center">
@@ -52,14 +52,14 @@ const LandingPage = () => {
         </div>
 
         <div className="about-section-2 " id="team">
-          <div className="container pb-5">
-            <div className="row text-center mx-5">
-              <div className="col-6 text-white p-3 bg-danger">
+          <div className="container-md container-fluid pb-5">
+            <div className="row text-center mx-1 mx-md-5">
+              <div className="col-12 col-md-6 text-white p-3  bg-danger">
                 Total Jobs Available &nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {initialData.totalJobs}
               </div>
-              <div className="col-6 text-white p-3 bg-info">
+              <div className="col-12 col-md-6 text-white p-3 bg-info">
                 Total Registered Users &nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {initialData.totalRegisteredUsers}
@@ -100,6 +100,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+      
       <div id="jobsection">
         <JobsSection />
       </div>

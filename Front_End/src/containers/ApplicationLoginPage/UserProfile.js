@@ -56,10 +56,10 @@ const UserProfile = (props) => {
         </div>
         <div className="row p-2">
           <div className="container-fluid">
-            <div className="row m-5  ">
+            <div className="row m-lg-5  ">
               {/* ...................................Left Side........................... */}
               <div
-                className="col-3 bg-light "
+                className="col-12 col-lg-3 bg-light "
                 style={{ backgroundColor: "#CBCBCB" }}
               >
                 <div className="row px-3 pt-3  text-danger  font-weight-bold">
@@ -172,7 +172,7 @@ const UserProfile = (props) => {
               </div>
 
               {/* ................................Right side............................ */}
-              <div className="col-7 ">
+              <div className="col-12 col-lg-7 ">
                 <div className="row px-3 pt-3 text-danger font-weight-bold">
                   Summery
                 </div>

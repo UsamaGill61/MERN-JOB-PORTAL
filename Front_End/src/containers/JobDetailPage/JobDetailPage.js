@@ -60,7 +60,7 @@ const JobDetailPage = (props) => {
       <div>
         <div className="container-fluid">
           {showApplyButton()}
-          <div className="row pt-2 text-right">
+          <div className="row pt-2 text-right pb-2">
             <div className="col-11">
               {auth.authenticate && auth.user.role === "Applicant" ? (
                 <>
@@ -82,10 +82,10 @@ const JobDetailPage = (props) => {
           </div>
         </div>
         <div className="container-fluid">
-          <div className="row m-5 border border-secondary ">
+          <div className="row m-md-5 border border-secondary ">
             {/* ...................................Left Side........................... */}
             <div
-              className="col-5 bg-light border border-info"
+              className="col-12 col-md-5 bg-light border border-info"
               style={{ backgroundColor: "#CBCBCB" }}
             >
               <div className="row px-3 pt-3  text-danger  font-weight-bold">
@@ -170,7 +170,7 @@ const JobDetailPage = (props) => {
             </div>
 
             {/* ................................Right side............................ */}
-            <div className="col-7 ">
+            <div className="col-12 col-md-7 ">
               <div className="row px-3 pt-3 text-danger font-weight-bold">
                 Job Title
               </div>

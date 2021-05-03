@@ -114,7 +114,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
               </div>
             </div>
             <div className="row ">
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="title">Enter Title of Job</label>
                 <Field
                   id="#title"
@@ -126,7 +126,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
 
                 <ErrorMessage name="title" component={ErrorMessages} />
               </div>{" "}
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="description">Enter description of Job</label>
                 <Field
                   id="#description"
@@ -141,7 +141,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
             </div>
 
             <div className="row ">
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="experienceRequired">
                   Select Experience Required
                 </label>
@@ -166,7 +166,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
                   component={ErrorMessages}
                 />
               </div>{" "}
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="location">Add Location/City</label>
                 <Field
                   id="#location"
@@ -181,7 +181,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
             </div>
 
             <div className="row ">
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="companyName">Enter your company Name </label>
                 <Field
                   id="#companyName"
@@ -193,7 +193,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
 
                 <ErrorMessage name="companyName" component={ErrorMessages} />
               </div>{" "}
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="TotalPositions">
                   Enter Total Positions of Job
                 </label>
@@ -210,7 +210,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
             </div>
 
             <div className="row ">
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="employmentStatus">
                   Select Employment Status
                 </label>
@@ -234,7 +234,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
                   component={ErrorMessages}
                 />
               </div>{" "}
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="Gender">Select Gender</label>
                 <Field
                   id="#Gender"
@@ -256,7 +256,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
             </div>
 
             <div className="row ">
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="monthlySalery">Enter Monthly Salery </label>
                 <Field
                   id="#monthlySalery"
@@ -268,7 +268,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
 
                 <ErrorMessage name="monthlySalery" component={ErrorMessages} />
               </div>{" "}
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="Role">Enter Role</label>
                 <Field
                   id="#Role"
@@ -283,7 +283,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
             </div>
 
             <div className="row ">
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="age">Select Age</label>
                 <Field
                   id="#age"
@@ -302,7 +302,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
 
                 <ErrorMessage name="age" component={ErrorMessages} />
               </div>{" "}
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label htmlFor="degreeLevel">Select Degree Level</label>
                 <Field
                   id="#degreeLevel"
@@ -324,7 +324,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
             </div>
 
             <div className="row ">
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label>Enter required Skills(Optional)</label>
                 <FieldArray name="requiredSkills">
                   {(FieldArrayprops) => {
@@ -372,7 +372,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
                 </FieldArray>
                 <ErrorMessage name="requiredSkills" component={ErrorMessages} />
               </div>{" "}
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <label>Enter Required Tools(Optional)</label>
                 <FieldArray name="requiredTools">
                   {(FieldArrayprops) => {
@@ -422,8 +422,8 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
               </div>{" "}
             </div>
             <div className="row pt-2">
-              <div className="col-3"></div>
-              <div className="col-6">
+              <div className="col-0 col-md-3"></div>
+              <div className="col-12 col-md-6">
                 <label>Last Day To Apply</label>
                 <DatePicker
                   onChange={(date) => onChange(date)}
@@ -433,7 +433,7 @@ const PostJobModel = ({ postJobModel, setpostJobModel }) => {
                 />
                 {DateError ? <p style={{ color: "red" }}>{DateError}</p> : null}
               </div>
-              <div className="col-3"></div>
+              <div className="col-0 col-md3"></div>
             </div>
 
             <div>
